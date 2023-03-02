@@ -26,13 +26,15 @@ SECRET_KEY = 'django-insecure-vu=po3pybhazsqk%8!jg17(q^85o^n^t(v0_++@k-!d7zt^se&
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "127.0.0.1", 'localhost'
+    "127.0.0.1", 'localhost','demotdjango.azurewebsites.net'
 ]
+CSRF_TRUSTED_ORIGINS =['https://demotdjango.azurewebsites.net/']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -85,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'AppBD',
         'USER': 'sabrina',
-        'PASSWORD': '240611',
+        'PASSWORD': '240611Ok',
         'HOST': '127.0.0.1',
         'PORT': '5432'
     }
@@ -127,6 +130,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT='./static/'
+STATICFILES_STORAGE=('whitenoise.storage.CompressedManifestStaticFilesStorage')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
