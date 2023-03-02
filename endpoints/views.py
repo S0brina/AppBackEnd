@@ -69,17 +69,13 @@ def loginRestaurante(request):
         Rest = Restaurant.objects.filter(usuario=usuario, password=password).first()
 
         if Rest:
-            # Correcto
-            Resta = []
-            for o in Rest:
-                    Resta.append({"id": o.id,
-                                "nombre": o.username,
-                                "password": o.password
-                                }
-                    )
             dictOK = {
                 "error": "",
-                "producto": Resta
+                "restaurante": {
+                    "id": Rest.id,
+                    "usuario": Rest.usuario,
+                    "password": Rest.password
+                }
             }
             strOK = json.dumps(dictOK)
             return HttpResponse(strOK)
