@@ -24,15 +24,18 @@ SECRET_KEY = 'django-insecure-vu=po3pybhazsqk%8!jg17(q^85o^n^t(v0_++@k-!d7zt^se&
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+STATIC_ROOT='./static/'
+STATICFILES_STORAGE=('whitenoise.storage.CompressedManifestStaticFilesStorage')
 
 ALLOWED_HOSTS = [
-    "127.0.0.1", 'localhost'
+    "127.0.0.1", 'localhost','demotdjango3.azurewebsites.net'
 ]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.runserver_nostatic',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -83,10 +87,10 @@ WSGI_APPLICATION = 'Carta.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'AppBD',
+        'NAME': 'appbd',
         'USER': 'sabrina',
-        'PASSWORD': '240611',
-        'HOST': '127.0.0.1',
+        'PASSWORD': '240611Ok',
+        'HOST': 'appbd.postgres.database.azure.com',
         'PORT': '5432'
     }
 }
