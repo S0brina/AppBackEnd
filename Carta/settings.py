@@ -26,9 +26,9 @@ SECRET_KEY = 'django-insecure-vu=po3pybhazsqk%8!jg17(q^85o^n^t(v0_++@k-!d7zt^se&
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "127.0.0.1", 'localhost','demotdjango.azurewebsites.net'
+    "127.0.0.1", 'localhost','demotdjango3.azurewebsites.net'
 ]
-CSRF_TRUSTED_ORIGINS =['https://demotdjango.azurewebsites.net/']
+CSRF_TRUSTED_ORIGINS =['https://demotdjango3.azurewebsites.net/']
 
 
 # Application definition
@@ -86,9 +86,9 @@ WSGI_APPLICATION = 'Carta.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'AppBD',
+        'NAME': 'appbd',
         'USER': 'sabrina',
-        'PASSWORD': '240611',
+        'PASSWORD': '240611Ok',
         'HOST': '127.0.0.1',
         'PORT': '5432'
     }
